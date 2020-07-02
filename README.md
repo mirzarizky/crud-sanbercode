@@ -1,21 +1,21 @@
-# MVC dan Install Laravel
+# CRUD Laravel
 
-> Laravel challange from [Sanbercode](https://blog.sanbercode.com/docs/kurikulum-laravel-web-development/week-3-tugas-harian/mvc-dan-install-laravel/).
+> Laravel challange from [Sanbercode](https://blog.sanbercode.com/docs/kurikulum-laravel-web-development/week-3-tugas-harian/crud-laravel/).
 
-## Target Pembelajaran
-- Berkenalan dengan struktur MVC (Bagian Controller)
-- Mengerti Routing Laravel
-- Mengerti Penggunaan Controller di Laravel
-- Handle Request dari URL dan form
+## Membuat Database Migrations
+Di dalam project laravel baru, buatlah database migrations menggunakan rancangan ERD Larahub yang dibuat di tugas rancang ERD sebelumnya. (CATATAN: Cukup table Pertanyaan dan Jawaban saja, tidak usah semua table)
 
-## Petunjuk Pengerjaan
-Masih ingat dengan challenge hari pertama materi HTML? hari ini kita akan pakai halaman tersebut di project laravel. Kamu diminta untuk membuat sebuah project Laravel. Di dalam project tersebut terdapat 3 route yaitu: Home, Register, dan Welcome.
-Langkah-langkahnya adalah:
-1. Buatlah route terlebih dahulu untuk setiap halaman yang ingin dibuat.
-2. Buat halaman blade untuk masing-masing route yang ingin dibuat. simpanlah di folder resources/views
-3. Buat dua controller : HomeController dan AuthController.
-4. Route Home diatur oleh HomeController, sedangkan route Register dan Welcome diatur oleh AuthController.
-5. Alur program: dimulai dari halaman Home(route: '/') terdapat link menuju route register (route: '/register') . di halaman register terdapat form untuk mengisi nama depan, nama belakang, dan isian lainnya. Ketika disubmit di halaman register, form diarahkan ke halaman welcome ( route : '/welcome') dengan membawa data nama depan dan nama belakang yang akan ditampilkan di halaman welcome tersebut.
-Jika sudah berhasil, berikut output yang diinginkan:
+## Membuat Model
+Di bagian ini kalian diminta untuk membuat model untuk table pertanyaan dan table jawaban (masing–masing satu model).
+Model yang dibuat digunakan untuk keperluan proses CRUD (Create Read Update dan Delete)
 
-![Preview](public/img/laravel-static.gif)
+## Proses CRUD
+Setelah table dan model tersedia, maka kita dapat mulai membuat proses CRUD. Buatlah CRUD untuk jawaban dan pertanyaan. Berikut ini gambaran Route dan Controller yang diinginkan
+| url | Methods | handler | Keterangan |
+| :------------ | :------------ | :------------ | :------------ |
+| /pertanyaan | GET | PertanyaanController@index | menampilkan tabel berisi data pertanyaan-pertanyaan | 
+| /pertanyaan/create|  GET |  PertanyaanController@create | menampilkan form untuk membuat pertanyaan baru |
+| /pertanyaan |  POST | PertanyaanController@store | menyimpan data baru ke tabel pertanyaan |
+| /jawaban/{pertanyaan_id} | GET | JawabanController@index | menampilkan jawaban dari pertanyaan dengan id tertentu |
+| /jawaban/{pertanyaan_id} | POST |  JawabanController@store | menyimpan jawaban baru untuk pertanyaan dengan id tertentu |
+
