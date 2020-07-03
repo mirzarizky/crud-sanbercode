@@ -23,4 +23,20 @@ class Pertanyaan
 
         return DB::table('pertanyaan')->insert($data);
     }
+
+    public static function update($id, $data)
+    {
+        $data['tanggal_diperbaharui'] = now();
+
+        return DB::table('pertanyaan')->where('id', $id)->update($data);
+    }
+
+    public static function destroy($id)
+    {
+        $deletePertanyaan = DB::table('pertanyaan')->where('id', $id)->delete();
+        if ($deletePertanyaan) {
+            // delete jawabannya juga
+            return DB::table('jawaban')->where('pertanyaan_id', $id)->delete();
+        }
+    }
 }

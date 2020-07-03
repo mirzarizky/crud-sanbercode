@@ -8,7 +8,7 @@
     <!-- textarea -->
     <div class="form-group">
       <label>Tambah Jawaban</label>
-      <textarea class="form-control" name="isi" rows="3" placeholder="Isi Jawaban ..." required></textarea>
+      <textarea class="form-control" name="isi" rows="3" placeholder="Isi Jawaban ..."></textarea>
     </div>
 
     <div class="form-group">
